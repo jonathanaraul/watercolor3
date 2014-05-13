@@ -1,0 +1,4 @@
+project_back:
+    resource: "@ProjectBackBundle/Resources/config/routing.yml"
+    prefix:   /
+
