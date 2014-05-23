@@ -26,8 +26,11 @@ class AppKernel extends Kernel
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
             new Project\BackBundle\ProjectBackBundle(),
+            new Project\UserBundle\ProjectUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
