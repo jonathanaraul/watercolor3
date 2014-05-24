@@ -101,27 +101,4 @@ class User extends BaseUser
       array_push($this->roles, 'ROLE_USER');
     }
     }
-
-    /**
-     * Set invitation
-     *
-     * @param \Project\UserBundle\Entity\Invitation $invitation
-     * @return User
-     */
-    public function setInvitation(\Project\UserBundle\Entity\Invitation $invitation = null)
-    {
-        $this->invitation = $invitation;
-
-        return $this;
-    }
-
-    /**
-     * Get invitation
-     *
-     * @return \Project\UserBundle\Entity\Invitation 
-     */
-    public function getInvitation()
-    {
-        return $this->invitation;
-    }
 }

@@ -62,12 +62,9 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
-
+    transport: gmail
+    username:  hjimenez45@gmail.com
+    password:  18693713
 # Avalanche Imagine
 avalanche_imagine:
     filters:
@@ -99,3 +96,11 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Project\UserBundle\Entity\User
+    registration:
+        confirmation:
+            enabled:    true
+        form:
+            type: project_user_registration
+    from_email:
+        address:        noreply@watercolor.com
+        sender_name:    watercolor

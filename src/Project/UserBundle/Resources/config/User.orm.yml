@@ -7,3 +7,7 @@ Project\UserBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255

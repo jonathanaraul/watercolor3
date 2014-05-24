@@ -48,6 +48,8 @@ class RegistrationController extends BaseController
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
+                $user-> addRole( 2 );
+
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {
