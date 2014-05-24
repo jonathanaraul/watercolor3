@@ -1,4 +1,4 @@
-{% extends 'ProjectBackBundle:Architecture:base.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% block pagesScriptsBottom %}
 
@@ -12,7 +12,7 @@
 <div class="main-container container-fluid" id="sinlogin">
 	<a class="menu-toggler" id="menu-toggler" href="#"> <span class="menu-text"></span> </a>
 
-	{% include 'ProjectBackBundle:Architecture:sidebar.html.twig'  with {'clase': 'gris'}  %}
+	{% include '::sidebar.html.twig'  with {'clase': 'gris'}  %}
 
 	<div class="main-content">
 

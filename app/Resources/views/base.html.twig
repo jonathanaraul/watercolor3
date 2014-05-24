@@ -43,7 +43,7 @@
 	</head>
 
 	<body>
-		{% include 'ProjectBackBundle:Architecture:navbar.html.twig'  with {'clase': 'gris'}  %}
+		{% include '::navbar.html.twig'  with {'clase': 'gris'}  %}
 
 		{% block pageContent  %}
 		{%endblock%}
@@ -102,8 +102,8 @@
 		<script src="{{asset('admin/js/ace-elements.min.js')}}"></script>
 		<script src="{{asset('admin/js/ace.min.js')}}"></script>
 
-		<!--inline scripts related to this page-->
-		<script src="{{asset('admin/js/project/genericals.js')}}"></script>
+		<!--inline scripts related to this page
+		<script src="{{asset('admin/js/project/genericals.js')}}"></script>-->
 		<script type="text/javascript">
 			function show_box(id) {
 			 $('.widget-box.visible').removeClass('visible');

@@ -1,32 +1,63 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Hola</title>
-    </head>
-    <body>
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
+{% extends '::base.html.twig' %}
 
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for key, message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
 
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-        </div>
-    </body>
-</html>
+
+{% block pageContent  %}
+<div class="main-container container-fluid" id="sinlogin">
+	<a class="menu-toggler" id="menu-toggler" href="#"> <span class="menu-text"></span> </a>
+
+	{% include '::sidebar.html.twig'  with {'clase': 'gris'}  %}
+
+	<div class="main-content">
+
+		{# include 'ProjectBackBundle:Architecture:breadcrumb.html.twig'  with {'clase': 'gris'} #}
+		<div class="page-content">
+
+			{% include 'ProjectBackBundle:Helpers:page-header.html.twig'  with {'titulo': 'Panel de control','subtitulo':'Vista de elementos'}  %}
+
+			<div class="row-fluid">
+				<div class="span12">
+					<!--PAGE CONTENT BEGINS-->
+
+					<div class="alert alert-block alert-success">
+						<button type="button" class="close" data-dismiss="alert">
+							<i class="icon-remove"></i>
+						</button>
+
+						<i class="icon-ok green"></i>
+
+						Welcome to
+						<strong class="green"> Ace <small>(v1.1.2)</small> </strong>
+						,
+						the lightweight, feature-rich and easy to use admin template.
+
+						{% for type, messages in app.session.flashbag.all() %}
+						{% for key, message in messages %}
+						<div class="flash-{{ type }}">
+							{{ message|trans({}, 'FOSUserBundle') }}
+						</div>
+						{% endfor %}
+						{% endfor %}
+					</div>
+
+					<div class="space-6"></div>
+
+					<div class="row-fluid">
+						<div class="span12">
+							{% block fos_user_content %}
+                            {% endblock fos_user_content %}
+						</div><!--/span-->
+					</div><!--/row-->
+
+					<div class="hr hr32 hr-dotted"></div>
+
+					<!--PAGE CONTENT ENDS-->
+				</div><!--/.span-->
+			</div><!--/.row-fluid-->
+		</div><!--/.page-content-->
+	</div><!--/.main-content-->
+</div><!--/.main-container-->
+{# include 'ProjectBackBundle:Helpers:users.html.twig'  with {'clase': 'gris'}  #}
+
+
+{%endblock%}

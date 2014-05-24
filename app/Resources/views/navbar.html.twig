@@ -132,9 +132,20 @@
 						</li>
 					</ul>
 				</li>
-
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false%}
+				<li class="green">
+					<a href="{{ path('fos_user_security_login') }}"> 
+						<i class="icon-envelope icon-animated-vertical"></i> 
+						<span class="badge badge-success">5</span> </a>
+				</li>
+				{%endif%}
 				<li class="light-blue">
-					<a data-toggle="dropdown" href="#" class="dropdown-toggle"> <img class="nav-user-photo" src="{{asset('admin/avatars/user.jpg')}}" alt="Jason's Photo" /> <span class="user-info"> <small>Welcome,</small> Jason </span> <i class="icon-caret-down"></i> </a>
+					<a data-toggle="dropdown" href="#" class="dropdown-toggle"> <img class="nav-user-photo" src="{{asset('admin/avatars/user.jpg')}}" alt="Jason's Photo" /> <span class="user-info"> <small>Welcome,</small>
+
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} {{ app.user.username}} {% endif %}
+
+
+				</span> <i class="icon-caret-down"></i> </a>
 
 					<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
 						<li>
@@ -146,10 +157,17 @@
 						</li>
 
 						<li class="divider"></li>
-
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 						<li>
-							<a href="#"> <i class="icon-off"></i> Logout </a>
+							<a href="{{ path('fos_user_security_logout') }}"> <i class="icon-off"></i>  
+								{{ 'layout.logout'|trans({}, 'FOSUserBundle') }} 
+							</a>
 						</li>
+						{% else %}
+						<li>
+							  <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+						</li>
+						{% endif %}
 					</ul>
 				</li>
 			</ul><!--/.ace-nav-->
