@@ -33,6 +33,8 @@ class DefaultController extends Controller
     		$em->persist($object);
     		$em->flush();
 
+            $usuarios[$i]['code']=$object->getCode();
+
     		$message = \Swift_Message::newInstance()
     		->setSubject('Invitacion a SistemasDinamicos.edu.ve')
     		->setFrom('noreply@sistemasdinamicos.com')
