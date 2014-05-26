@@ -16,8 +16,8 @@ class DefaultController extends Controller
 
     	$user = $this->getUser();
     	$usuarios = array();
-    	$usuarios[0] = array('email'=>'jonathan.araul@gmail.com','nombre'=>'Jonathan Araul','sexo'=>1 );
-    	$usuarios[1] = array('email'=>'arauljonathan@hispanosoluciones.com','nombre'=>'Jonathan Araul','sexo'=>1 );
+    	//$usuarios[0] = array('email'=>'jonathan.araul@gmail.com','nombre'=>'Jonathan Araul','sexo'=>1 );
+    	$usuarios[0] = array('email'=>'arauljonathan@hispanosoluciones.com','nombre'=>'Jonathan Araul','sexo'=>1 );
 
 
     	for ($i=0; $i < count($usuarios); $i++) { 

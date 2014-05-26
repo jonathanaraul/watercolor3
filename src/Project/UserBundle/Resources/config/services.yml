@@ -18,3 +18,9 @@ services:
     project.invitation.form.data_transformer:
         class: Project\UserBundle\Form\DataTransformer\InvitationToCodeTransformer
         arguments: [@doctrine.orm.entity_manager]
+
+    project.profile.form.type:
+        class: Project\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: project_user_profile }

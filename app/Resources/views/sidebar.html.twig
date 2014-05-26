@@ -30,12 +30,30 @@
 	</div><!--#sidebar-shortcuts-->
 
 	<ul class="nav nav-list">
-		<li class="active">
-			<a href="index.html"> <i class="icon-dashboard"></i> <span class="menu-text"> Dashboard </span> </a>
+		<li {% if app.request.attributes.get('_route') == 'project_back_homepage' %}class="active"{%endif%}>
+			<a href="{{ path('project_back_homepage') }}"> <i class="icon-home"></i> <span class="menu-text"> Inicio </span> </a>
+		</li>
+		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false%}
+		<li {% if app.request.attributes.get('_route') == 'fos_user_security_login' %}class="active"{%endif%}>
+			<a href="{{ path('fos_user_security_login') }}" > <i class="icon-key"></i> <span class="menu-text"> Iniciar sesión </span> </a>
+		</li>
+		<li {% if app.request.attributes.get('_route') == 'fos_user_registration_register' %}class="active"{%endif%}>
+			<a href="{{ path('fos_user_registration_register') }}"> <i class="icon-group"></i> <span class="menu-text"> Registro </span> </a>
+		</li>
+		{%else%}
+		<li {% if app.request.attributes.get('_route') == 'fos_user_profile_show' %}class="active"{%endif%}>
+			<a href="{{ path('fos_user_profile_show') }}"> <i class="icon-eye-open"></i> <span class="menu-text"> Mi Perfil </span> </a>
+		</li>
+		<li {% if app.request.attributes.get('_route') == 'fos_user_profile_edit' %}class="active"{%endif%}>
+			<a href="{{ path('fos_user_profile_edit') }}"> <i class="icon-edit"></i> <span class="menu-text"> Editar Perfil </span> </a>
 		</li>
 		<li >
-			<a href="javascript:void(0);" id="login-users"> <i class="icon-dashboard"></i> <span class="menu-text"> Login </span> </a>
+			<a href="{{ path('fos_user_security_logout') }}"> <i class="icon-off"></i> <span class="menu-text"> Cerrar sesión </span> </a>
 		</li>
+		{%endif%}
+
+
+		{#
 		<li>
 			<a href="typography.html"> <i class="icon-text-width"></i> <span class="menu-text"> Typography </span> </a>
 		</li>
@@ -158,7 +176,7 @@
 					<a href="blank.html"> <i class="icon-double-angle-right"></i> Blank Page </a>
 				</li>
 			</ul>
-		</li>
+		</li>#}
 	</ul><!--/.nav-list-->
 
 	<div class="sidebar-collapse" id="sidebar-collapse">

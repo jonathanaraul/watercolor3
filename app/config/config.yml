@@ -68,9 +68,12 @@ swiftmailer:
 # Avalanche Imagine
 avalanche_imagine:
     filters:
-        my_thumb:
+        navbar:
             type:    thumbnail
-            options: { size: [120, 90], mode: outbound }
+            options: { size: [40, 40], mode: outbound }
+        profile:
+            type:    thumbnail
+            options: { size: [212, 212], mode: outbound }
 
 bazinga_geocoder: ~
 
@@ -101,6 +104,9 @@ fos_user:
             enabled:    true
         form:
             type: project_user_registration
+    profile:
+        form:
+            type: project_user_profile
     from_email:
         address:        noreply@watercolor.com
         sender_name:    watercolor

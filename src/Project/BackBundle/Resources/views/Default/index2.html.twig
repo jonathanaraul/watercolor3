@@ -2,7 +2,7 @@
 
 {% block pagesScriptsBottom %}
 
-<script src="{{asset('admin/js/helpers/grafico-torta.js')}}"></script>
+<script src="{{asset('admin/js/helpers/grafico-social.js')}}"></script>
 <script src="{{asset('admin/js/helpers/grafico-dominios.js')}}"></script>
 <script src="{{asset('admin/js/helpers/widget-reciente.js')}}"></script>
 <script src="{{asset('admin/js/helpers/widget-comentarios.js')}}"></script>
@@ -19,7 +19,7 @@
 		{# include 'ProjectBackBundle:Architecture:breadcrumb.html.twig'  with {'clase': 'gris'} #}
 		<div class="page-content">
 
-			{# include 'ProjectBackBundle:Helpers:page-header.html.twig'  with {'titulo': 'Panel de control','subtitulo':'Vista de elementos'}  #}
+			{% include 'ProjectBackBundle:Helpers:page-header.html.twig'  with {'titulo': 'Panel de control','subtitulo':'Vista de elementos'}  %}
 
 			<div class="row-fluid">
 				<div class="span12">
@@ -32,9 +32,10 @@
 
 						<i class="icon-ok green"></i>
 
-						Bienvenido a
-						<strong class="green"> Watercolor <small>(v3)</small> </strong>
-						Un sofisticado panel de control para proyectos en symfony
+						Welcome to
+						<strong class="green"> Ace <small>(v1.1.2)</small> </strong>
+						,
+						the lightweight, feature-rich and easy to use admin template.
 					</div>
 
 					<div class="space-6"></div>
@@ -45,11 +46,33 @@
 						<div class="vspace"></div>
 
 						<div class="span5">
-							{% include 'ProjectBackBundle:Helpers:grafico-torta.html.twig'  with {'clase': 'gris'}  %}
+							{% include 'ProjectBackBundle:Helpers:grafico-trafico.html.twig'  with {'clase': 'gris'}  %}
 						</div><!--/span-->
 					</div><!--/row-->
 
 					<div class="hr hr32 hr-dotted"></div>
+
+					<div class="row-fluid">
+						<div class="span5">
+							{% include 'ProjectBackBundle:Helpers:tabla-dominios.html.twig'  with {'clase': 'gris'}  %}
+						</div>
+
+						<div class="span7">
+							{% include 'ProjectBackBundle:Helpers:grafico-dominios.html.twig'  with {'clase': 'gris'}  %}
+						</div>
+					</div>
+
+					<div class="hr hr32 hr-dotted"></div>
+
+					<div class="row-fluid">
+						<div class="span6">
+							{% include 'ProjectBackBundle:Helpers:widget-reciente.html.twig'  with {'clase': 'gris'}  %}
+						</div><!--/span-->
+
+						<div class="span6">
+							{% include 'ProjectBackBundle:Helpers:widget-comentarios.html.twig'  with {'clase': 'gris'}  %}
+						</div><!--/span-->
+					</div><!--/row-->
 
 					<!--PAGE CONTENT ENDS-->
 				</div><!--/.span-->
